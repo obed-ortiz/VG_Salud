@@ -1,0 +1,71 @@
+﻿@model IEnumerable<VgSalud.Models.E_Especialidades>
+
+@{
+    ViewBag.Title = "ListaEspecialidad";
+}
+
+
+
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>Registrar Usuario</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-users"></i>Usuario</a></li>
+            <li class="active">Consultar Usuario</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                     <div class="box-header">
+                         <a href="~/Especialidad/Registrar" class="btn btn-danger">Registrar nueva especialidad &nbsp<i class="fa fa-plus-square pull-right" aria-hidden="true"></i></a>
+                     </div>
+                    <br />
+                    <div class="box-header">
+                        <h3 class="box-title">Tabla de Usuario</h3>
+                    </div>
+                    <div class="box-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Codigo</th>
+                                    <th>Nombre</th>
+                                    <th>Descripción</th>
+                                    <th>Estado</th>
+                                    <th><i class="fa fa-edit"></i> / <i class="fa fa-trash-o"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                @foreach (var item in Model)
+                                {
+
+                                    <tr>
+                                        <td>@Html.DisplayFor(modelItem => item.CodEspec)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.NomEspec)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.DescEspec)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.EstEspec)</td>
+                                        <td>
+                                            <div class="tools">
+                                               <a title="Visualizar" href="Modificar/@item.CodEspec"><i class="fa fa-edit"></i></a>
+                                               <a href="Eliminar/@item.CodEspec"><i class="fa fa-trash-o"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                }
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="control-sidebar-bg">
+</div>
+
